@@ -23,8 +23,8 @@ function verifyJWT(req, res, next) {
 
         console.log('decoded', decoded)
         req.decoded = decoded;
+        next();
     })
-    next();
 }
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.1gspj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -86,7 +86,7 @@ async function run() {
                 const orders = await cursor.toArray();
                 res.send(orders);
             } else {
-                res.status(403).send({ message: 'forbidden access' });
+                res.status(403).send({ message: 'forbidden access' })
             }
         });
         app.post('/order', async (req, res) => {
