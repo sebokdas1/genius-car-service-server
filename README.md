@@ -46,3 +46,7 @@ Genarate access token on terminal:
  -  replace localhost by heroku link
  -  npm run build
  -  firebase deploy
+
+
+
+ dd
